@@ -1,5 +1,7 @@
 import { Card, Button, Badge, Typography } from 'antd';
 import { Ruler, Package } from 'lucide-react';
+import { useSelector } from 'react-redux';
+import { selectSelectedSkip } from '../redux';
 
 // Import skip images
 import skip4Yard from '../assets/images/4yard.jpg';
@@ -24,7 +26,10 @@ const getSkipImage = (yards) => {
   return imageMap[yards] || skip4Yard; // fallback to 4yard image
 };
 
-const SkipCard = ({ skip, onSelect, isSelected = false, hideMobileSelection = false }) => {
+const SkipCard = ({ skip, onSelect, hideMobileSelection = false }) => {
+  const selectedSkip = useSelector(selectSelectedSkip);
+  const isSelected = selectedSkip?.id === skip.id;
+
   const handleSelect = () => {
     onSelect(skip);
   };
@@ -34,10 +39,10 @@ const SkipCard = ({ skip, onSelect, isSelected = false, hideMobileSelection = fa
       className={`
         relative overflow-hidden transition-all duration-300 hover:shadow-xl flex flex-col
         ${isSelected && !hideMobileSelection
-          ? 'ring-2 ring-blue-500 shadow-lg shadow-blue-500/20'
+          ? 'ring-2 ring-blue-500 shadow-lg shadow-blue-500/20 transform translate-y-[-2px]'
           : 'hover:shadow-lg hover:shadow-slate-700/30'
         }
-        ${hideMobileSelection ? 'md:ring-2 md:ring-blue-500 md:shadow-lg md:shadow-blue-500/20' : ''}
+        ${hideMobileSelection && isSelected ? 'md:ring-2 md:ring-blue-500 md:shadow-lg md:shadow-blue-500/20 md:transform md:translate-y-[-2px]' : ''}
         bg-slate-800/80 backdrop-blur-sm border-slate-700/60
         [&_.ant-card]:border-none [&]:border-none
       `}
@@ -158,14 +163,15 @@ const SkipCard = ({ skip, onSelect, isSelected = false, hideMobileSelection = fa
             onClick={handleSelect}
             block
             className={`
+              transition-all duration-300
               ${isSelected && !hideMobileSelection
-                ? 'bg-blue-600 border-blue-600 text-white hover:bg-blue-700'
+                ? '!bg-blue-600 !border-blue-600 !text-white hover:!bg-blue-700 shadow-lg shadow-blue-500/30'
                 : 'bg-slate-700 border-slate-600 text-slate-200 hover:bg-slate-600 hover:border-slate-500'
               }
-              ${hideMobileSelection && isSelected ? 'md:bg-blue-600 md:border-blue-600 md:text-white md:hover:bg-blue-700' : ''}
+              ${hideMobileSelection && isSelected ? 'md:!bg-blue-600 md:!border-blue-600 md:!text-white md:hover:!bg-blue-700 md:shadow-lg md:shadow-blue-500/30' : ''}
             `}
           >
-            {isSelected && !hideMobileSelection ? 'Selected' : 'Select This Skip'}
+            {isSelected && !hideMobileSelection ? '✓ Selected' : 'Select This Skip'}
           </Button>
         </div>
       </div>
