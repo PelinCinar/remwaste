@@ -165,15 +165,15 @@ const Header = () => {
             ))}
           </div>
 
-          {/* Steps - Mobile (2x3 Grid) */}
+          {/* Steps - Mobile (3x2 Grid) */}
           <div className="md:hidden relative">
-            {/* Mobile Steps Grid */}
-            <div className="grid grid-cols-2 gap-6 px-6 py-4">
+            {/* Mobile Steps Grid - 3 columns, 2 rows */}
+            <div className="grid grid-cols-3 gap-4 px-4 py-3">
               {steps.map((step) => (
                 <div key={step.id} className="flex flex-col items-center">
-                  {/* Mobile Step Circle */}
+                  {/* Mobile Step Circle - Smaller for 3x2 grid */}
                   <div
-                    className={`w-14 h-14 rounded-full flex items-center justify-center mb-3
+                    className={`w-12 h-12 rounded-full flex items-center justify-center mb-2
                       transition-all duration-300 ease-in-out
                       ${
                         step.completed
@@ -184,9 +184,9 @@ const Header = () => {
                       }
                     `}
                   >
-                    {/* Mobile Icons */}
+                    {/* Mobile Icons - Smaller */}
                     <step.icon
-                      className={`w-7 h-7 ${
+                      className={`w-5 h-5 ${
                         step.completed
                           ? "text-white"
                           : step.current
@@ -196,9 +196,9 @@ const Header = () => {
                     />
                   </div>
 
-                  {/* Mobile Step Label */}
+                  {/* Mobile Step Label - Smaller text */}
                   <p
-                    className={`text-sm font-medium transition-colors duration-200 text-center
+                    className={`text-xs font-medium transition-colors duration-200 text-center leading-tight
                       ${
                         step.current
                           ? "text-blue-400"

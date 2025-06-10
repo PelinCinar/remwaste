@@ -24,7 +24,7 @@ const getSkipImage = (yards) => {
   return imageMap[yards] || skip4Yard; // fallback to 4yard image
 };
 
-const SkipCard = ({ skip, onSelect, isSelected = false }) => {
+const SkipCard = ({ skip, onSelect, isSelected = false, hideMobileSelection = false }) => {
   const handleSelect = () => {
     onSelect(skip);
   };
@@ -33,10 +33,11 @@ const SkipCard = ({ skip, onSelect, isSelected = false }) => {
     <Card
       className={`
         relative overflow-hidden transition-all duration-300 hover:shadow-xl flex flex-col
-        ${isSelected
+        ${isSelected && !hideMobileSelection
           ? 'ring-2 ring-blue-500 shadow-lg shadow-blue-500/20'
           : 'hover:shadow-lg hover:shadow-slate-700/30'
         }
+        ${hideMobileSelection ? 'md:ring-2 md:ring-blue-500 md:shadow-lg md:shadow-blue-500/20' : ''}
         bg-slate-800/80 backdrop-blur-sm border-slate-700/60
         [&_.ant-card]:border-none [&]:border-none
       `}
@@ -80,9 +81,10 @@ const SkipCard = ({ skip, onSelect, isSelected = false }) => {
     >
       {/* Card Content - Fixed Layout */}
       <div className="p-4 flex flex-col flex-1">
-        {/* Skip Details - Side by Side */}
+        {/* Skip Details - Responsive Layout */}
         <div className="mb-3" style={{ minHeight: '45px' }}>
-          <div className="flex items-center justify-between gap-4">
+          {/* Desktop/Tablet: Side by Side */}
+          <div className="hidden sm:flex items-center justify-between gap-4">
             <div className="flex items-center gap-2">
               <Ruler className="w-4 h-4 text-blue-400" />
               <Text className="text-slate-300 text-sm">
@@ -90,6 +92,22 @@ const SkipCard = ({ skip, onSelect, isSelected = false }) => {
               </Text>
             </div>
 
+            <div className="flex items-center gap-2">
+              <Package className="w-4 h-4 text-green-400" />
+              <Text className="text-slate-300 text-sm">
+                {skip.capacity}
+              </Text>
+            </div>
+          </div>
+
+          {/* Mobile: Stacked */}
+          <div className="sm:hidden space-y-2">
+            <div className="flex items-center gap-2">
+              <Ruler className="w-4 h-4 text-blue-400" />
+              <Text className="text-slate-300 text-sm">
+                {skip.dimensions}
+              </Text>
+            </div>
             <div className="flex items-center gap-2">
               <Package className="w-4 h-4 text-green-400" />
               <Text className="text-slate-300 text-sm">
@@ -135,18 +153,19 @@ const SkipCard = ({ skip, onSelect, isSelected = false }) => {
         {/* Action Button - Always at bottom */}
         <div className="mt-auto mb-2">
           <Button
-            type={isSelected ? "primary" : "default"}
+            type={isSelected && !hideMobileSelection ? "primary" : "default"}
             size="large"
             onClick={handleSelect}
             block
             className={`
-              ${isSelected
+              ${isSelected && !hideMobileSelection
                 ? 'bg-blue-600 border-blue-600 text-white hover:bg-blue-700'
                 : 'bg-slate-700 border-slate-600 text-slate-200 hover:bg-slate-600 hover:border-slate-500'
               }
+              ${hideMobileSelection && isSelected ? 'md:bg-blue-600 md:border-blue-600 md:text-white md:hover:bg-blue-700' : ''}
             `}
           >
-            {isSelected ? 'Selected' : 'Select This Skip'}
+            {isSelected && !hideMobileSelection ? 'Selected' : 'Select This Skip'}
           </Button>
         </div>
       </div>
