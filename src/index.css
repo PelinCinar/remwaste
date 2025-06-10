@@ -1,0 +1,42 @@
+@import "tailwindcss";
+
+/* Custom Ant Design Steps styling */
+.custom-steps .ant-steps-item-process .ant-steps-item-icon {
+  background: linear-gradient(135deg, #3b82f6, #8b5cf6) !important;
+  border-color: #3b82f6 !important;
+}
+
+.custom-steps .ant-steps-item-finish .ant-steps-item-icon {
+  background: linear-gradient(135deg, #10b981, #059669) !important;
+  border-color: #10b981 !important;
+}
+
+.custom-steps .ant-steps-item-wait .ant-steps-item-icon {
+  background: rgba(71, 85, 105, 0.5) !important;
+  border-color: rgba(71, 85, 105, 0.5) !important;
+}
+
+.custom-steps .ant-steps-item-process .ant-steps-item-icon .ant-steps-icon {
+  color: white !important;
+}
+
+.custom-steps .ant-steps-item-finish .ant-steps-item-icon .ant-steps-icon {
+  color: white !important;
+}
+
+.custom-steps .ant-steps-item-wait .ant-steps-item-icon .ant-steps-icon {
+  color: #94a3b8 !important;
+}
+
+/* Progress line styling */
+.custom-steps .ant-steps-item-finish .ant-steps-item-tail::after {
+  background: linear-gradient(90deg, #10b981, #3b82f6) !important;
+}
+
+.custom-steps .ant-steps-item-process .ant-steps-item-tail::after {
+  background: linear-gradient(90deg, #3b82f6, rgba(71, 85, 105, 0.3)) !important;
+}
+
+.custom-steps .ant-steps-item-wait .ant-steps-item-tail::after {
+  background: rgba(71, 85, 105, 0.3) !important;
+}
