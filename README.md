@@ -1,12 +1,18 @@
-# React + Vite
+# ♻️ Kurumsal Web Sayfası Yeniden Tasarımı 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Bu proje, bir şirkete ait mevcut web sayfasının modern kullanıcı arayüzü ve kullanıcı deneyimi (UI/UX) prensiplerine uygun olarak yeniden tasarlanmasını içermektedir. Tasarım süreci boyunca React teknolojisi kullanılmış olup, responsive (mobil uyumlu) ve kullanıcı dostu bir yapı hedeflenmiştir.
 
-Currently, two official plugins are available:
+🛠️ Kullanılan Teknolojiler
+React 19 – Bileşen tabanlı modern kullanıcı arayüzü
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+**Redux Toolkit –** Global state yönetimi
 
-## Expanding the ESLint configuration
+**Tailwind CSS –** Yardımcı sınıflarla hızlı ve esnek stil oluşturma
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+**Ant Design (antd) –** Profesyonel UI bileşen kütüphanesi
+
+**Lucide React & React Icons –** Hafif ve özelleştirilebilir ikonlar
+
+![image](https://github.com/user-attachments/assets/4f5896dc-d35a-4e20-afbf-85046765867b)
+![image](https://github.com/user-attachments/assets/4a09c65a-4f92-4299-a456-769b0db99a5c)
+![image](https://github.com/user-attachments/assets/dd6169f1-a1bf-4d3f-88c5-3dbe625982ea)
