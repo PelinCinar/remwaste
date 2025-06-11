@@ -14,5 +14,5 @@ React 19 – Bileşen tabanlı modern kullanıcı arayüzü
 **Lucide React & React Icons –** Hafif ve özelleştirilebilir ikonlar
 
 ![image](https://github.com/user-attachments/assets/4f5896dc-d35a-4e20-afbf-85046765867b)
-![image](https://github.com/user-attachments/assets/4a09c65a-4f92-4299-a456-769b0db99a5c)
-![image](https://github.com/user-attachments/assets/dd6169f1-a1bf-4d3f-88c5-3dbe625982ea)
+
+![image](https://github.com/user-attachments/assets/5b182e33-e2bb-49f9-981a-79217db79001)
